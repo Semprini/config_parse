@@ -1,4 +1,6 @@
 import unittest
+import xmlrunner
+import config_parse
 
 class TestStringMethods(unittest.TestCase):
 
@@ -17,4 +19,7 @@ class TestStringMethods(unittest.TestCase):
           s.split(2)
 
 if __name__ == '__main__':
-    unittest.main()
+    with open('/path/to/results.xml', 'wb') as output:
+        unittest.main(
+            testRunner=xmlrunner.XMLTestRunner(output=output),
+            failfast=False, buffer=False, catchbreak=False)
