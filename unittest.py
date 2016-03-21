@@ -20,7 +20,7 @@ class TestStringMethods(unittest.TestCase):
           s.split(2)
 
 if __name__ == '__main__':
-    path = os.environ.get('CIRCLE_TEST_REPORTS')
+    path = os.getenv('CIRCLE_TEST_REPORTS', '.')
     with open(path + '/results.xml', 'wb') as output:
         unittest.main(
             testRunner=xmlrunner.XMLTestRunner(output=output),
